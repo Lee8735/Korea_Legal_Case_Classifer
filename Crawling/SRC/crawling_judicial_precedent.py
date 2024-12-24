@@ -169,35 +169,34 @@ class Web_Browser:
     
     # PDF 링크 찾기 및 PDF 다운로드 클릭
     def Download_PDF(self):
-           
-        Download_button = WebDriverWait(self.driver, 10).until(
-            EC.element_to_be_clickable((By.XPATH, self.XPATH))
-        )
-        Download_button.click()
-
-        time.sleep(0.5)
+        try:
+            Download_button = WebDriverWait(self.driver, 3).until(
+                EC.element_to_be_clickable((By.XPATH, self.XPATH))
+            )
+            Download_button.click()
+            
+            time.sleep(0.5)
         
-        # 다운로드 종료 대기
-        if not is_download_finished(self.DownPath):
-            raise TimeoutError("파일 다운로드가 완료되지 않았습니다.")
+            # 다운로드 종료 대기
+            if not is_download_finished(self.DownPath):
+                raise TimeoutError("파일 다운로드가 완료되지 않았습니다.")
 
-        # 파일 이름 변경
-        downloaded_file = max(
-            [os.path.join(self.DownPath, f) 
-                      for f in os.listdir(self.DownPath)],
-            key=os.path.getctime
-        )
-        
-         # 파일 이름 변경
-        downloaded_file = max(
-            [os.path.join(self.DownPath, f) for f in os.listdir(self.DownPath)],
-            key=os.path.getctime
-        )
+            # 파일 이름 변경
+            downloaded_file = max(
+                [os.path.join(self.DownPath, f) 
+                        for f in os.listdir(self.DownPath)],
+                key=os.path.getctime
+            )
+            
+            self.PDF_File = f'{self.Category}_{self.DataNum + 1}'
+            new_file_name = os.path.join(self.DownPath, f"{self.PDF_File}.pdf")
+            os.rename(downloaded_file, new_file_name)
+            
+        except TimeoutException:
+            self.PDF_File = 'No_PDF'
+            
 
         
-        self.PDF_File = f'{self.Category}_{self.DataNum + 1}'
-        new_file_name = os.path.join(self.DownPath, f"{self.PDF_File}.pdf")
-        os.rename(downloaded_file, new_file_name)
         
     
     # 하단 페이지 중 하나 선택
