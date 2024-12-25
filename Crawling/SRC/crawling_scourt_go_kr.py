@@ -195,7 +195,9 @@ class Web_Browser:
             
         except TimeoutError:
             self.PDF_File = 'No_PDF'
-        
+        except TimeoutException:
+            self.PDF_File = 'No_PDF'
+            
     
     # 하단 페이지 중 하나 선택
     def Click_Page(self):

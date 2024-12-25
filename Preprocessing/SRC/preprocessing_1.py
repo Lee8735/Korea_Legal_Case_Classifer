@@ -7,7 +7,6 @@ import nltk
 
 from konlpy.tag import Okt
 from wordcloud import WordCloud
-from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from collections import Counter
 

@@ -12,7 +12,6 @@ from keras._tf_keras.keras.preprocessing.text import Tokenizer
 from keras._tf_keras.keras.preprocessing.sequence import pad_sequences
 
 import pickle
-from konlpy.tag import Okt
 
 
 
