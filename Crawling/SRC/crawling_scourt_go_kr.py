@@ -170,13 +170,13 @@ class Web_Browser:
     # PDF 링크 찾기 및 PDF 다운로드 클릭
     def Download_PDF(self):
         try:
-            Download_button = WebDriverWait(self.driver, 10).until(
+            Download_button = WebDriverWait(self.driver, 3).until(
                 EC.element_to_be_clickable((By.XPATH, self.XPATH))
             )
             Download_button.click()
-
-            time.sleep(0.5)
             
+            time.sleep(0.5)
+        
             # 다운로드 종료 대기
             if not is_download_finished(self.DownPath):
                 raise TimeoutError("파일 다운로드가 완료되지 않았습니다.")
