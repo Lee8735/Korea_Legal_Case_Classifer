@@ -25,14 +25,6 @@ import datetime
 import os
 
 
-#title and detail XPATH
-'//*[@id="viewHeightDiv"]/table/tbody/tr[1]/td[2]'
-'//*[@id="viewHeightDiv"]/table/tbody/tr[2]/td'
-
-'//*[@id="viewHeightDiv"]/table/tbody/tr[3]/td[2]'
-'//*[@id="viewHeightDiv"]/table/tbody/tr[4]/td'
-
-
 
 class Web_Browser:
     

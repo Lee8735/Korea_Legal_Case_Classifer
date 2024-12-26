@@ -25,6 +25,7 @@ import datetime
 import os
 
 
+
 # 다운로드가 완료되었는지 확인하는 함수
 def is_download_finished(download_path):
     for _ in range(30):  # 최대 30초 동안 대기

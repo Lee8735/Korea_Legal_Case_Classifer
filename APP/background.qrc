@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="back">
+    <file>background-removebg-preview.png</file>
+  </qresource>
+</RCC>
